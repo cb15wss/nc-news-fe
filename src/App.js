@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import { Router } from "@reach/router";
+import ArticleList from "./components/ArticleList";
+import Article from "./components/Article";
+import TopicsList from "./components/TopicsList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Header />
+      <NavBar />
+      <Router>
+        <Home path="/" />
+        <ArticleList path="/articles" />
+
+        <Article path="/articles/:article_id" />
+        <ArticleList path="/articles/topic/:topic" />
+        <TopicsList path="/topics" />
+      </Router>
     </div>
   );
 }
