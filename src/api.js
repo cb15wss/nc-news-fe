@@ -23,7 +23,6 @@ export const getArticle = article_id => {
 
 export const getTopics = () => {
   return apiRequest.get(`/topics`).then(({ data }) => {
-    //console.log("topics in get topics ", data.topics);
     return data.topics;
   });
 };

@@ -7,6 +7,7 @@ const CommentCard = ({ comment }) => {
     <li className="card mb-4" key={comment_id}>
       <div className="card-body"></div>
       <p className="card-text">{body}</p>
+      <p className="card-text">Votes: {votes}</p>
       <div className="card-header">
         Posted on {created_at} <br /> by:
         <Link to={`/users/${author}`}>{author}</Link>

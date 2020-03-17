@@ -18,10 +18,7 @@ class Article extends Component {
   };
 
   render() {
-    console.log("props in article", this.props);
-    console.log(this.state.article);
     const {
-      article_id,
       title,
       body,
       votes,

@@ -23,8 +23,6 @@ class ArticleList extends Component {
     const { topic } = this.props;
     Api.getArticles(topic)
       .then(articles => {
-        console.log("fetch articles", articles);
-        console.log("topic", topic);
         this.setState({ articles });
       })
       .catch(console.dir);

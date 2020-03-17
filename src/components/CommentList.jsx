@@ -12,7 +12,6 @@ class CommentList extends Component {
   fetchComments = () => {
     const { article_id } = this.props;
     getArticleComments(article_id).then(comments => {
-      console.log("comments", comments);
       this.setState({ comments });
     });
   };
