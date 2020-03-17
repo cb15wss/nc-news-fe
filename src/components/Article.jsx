@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getArticle } from "../api";
 import { Link } from "@reach/router";
+import CommentList from "./CommentList";
 
 class Article extends Component {
   state = { article: {} };
@@ -20,6 +21,7 @@ class Article extends Component {
     console.log("props in article", this.props);
     console.log(this.state.article);
     const {
+      article_id,
       title,
       body,
       votes,
@@ -46,6 +48,7 @@ class Article extends Component {
             <Link to={`/users/${author}`}> {author}</Link>
           </div>
         </div>
+        <CommentList article_id={this.props.article_id} />
       </div>
     );
   }

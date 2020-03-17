@@ -17,7 +17,6 @@ function App() {
       <Router>
         <Home path="/" />
         <ArticleList path="/articles" />
-
         <Article path="/articles/:article_id" />
         <ArticleList path="/articles/topic/:topic" />
         <TopicsList path="/topics" />

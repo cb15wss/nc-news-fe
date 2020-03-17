@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 
 const TopicCard = props => {
-  console.log("topic card props ", props.topics);
   const { topics } = props;
   return (
     <div className="row">

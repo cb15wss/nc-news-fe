@@ -16,14 +16,20 @@ export const getArticles = topic => {
 
 export const getArticle = article_id => {
   return apiRequest.get(`articles/${article_id}`).then(({ data }) => {
-    console.log("article in get article", data.article);
+    //console.log("article in get article", data.article);
     return data.article;
   });
 };
 
 export const getTopics = () => {
   return apiRequest.get(`/topics`).then(({ data }) => {
-    console.log("topics in get topics ", data.topics);
+    //console.log("topics in get topics ", data.topics);
     return data.topics;
+  });
+};
+
+export const getArticleComments = article_id => {
+  return apiRequest.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
   });
 };
