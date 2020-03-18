@@ -23,9 +23,11 @@ class TopicsList extends Component {
       return <Loading />;
     }
     return (
-      <div className="container">
-        <TopicCard topics={topics} />
-      </div>
+      <>
+        <div className="container">
+          <TopicCard topics={topics} />
+        </div>
+      </>
     );
   }
 }

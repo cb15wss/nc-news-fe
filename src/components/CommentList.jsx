@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import { getArticleComments } from "../api";
+import { getArticleComments, deleteById } from "../api";
 import CommentCard from "./CommentCard";
+import SubmitComment from "./SubmitComment";
 
 class CommentList extends Component {
   state = { comments: [], isLoading: true, error: false, errorMessage: "" };
 
   componentDidMount() {
     this.fetchComments();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.article_id !== this.props.article_id) {
+      this.fetchComments();
+    }
   }
 
   fetchComments = () => {
@@ -16,17 +23,47 @@ class CommentList extends Component {
     });
   };
 
+  pushComment = commentToSubmit => {
+    this.setState(currentState => {
+      return { comments: [commentToSubmit, ...currentState.comments] };
+    });
+  };
+
+  removeComment = (comment_id, target, index) => {
+    deleteById(comment_id, target).then(response => {
+      if (response === 204) {
+        this.setState(currentState => {
+          currentState.comments.splice(index, 1);
+          return { comments: currentState.comments };
+        });
+      }
+    });
+  };
+
   render() {
     const { comments } = this.state;
+    const { article_id, username } = this.props;
     return (
-      <>
-        <h2>Article Comments</h2>
+      <div className="container">
+        <SubmitComment
+          pushComment={this.pushComment}
+          article_id={article_id}
+          username={username}
+        />
+        <h3>Comments</h3>
         <ul>
           {comments.map(comment => {
-            return <CommentCard key={comment.comment_id} comment={comment} />;
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                comment={comment}
+                username={username}
+                removeComment={this.removeComment}
+              />
+            );
           })}
         </ul>
-      </>
+      </div>
     );
   }
 }

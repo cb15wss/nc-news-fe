@@ -1,28 +1,37 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const ArticlesCard = props => {
-  //console.log("articleCard props ", props);
-  const { article } = props;
+const ArticleCard = props => {
+  const {
+    topic,
+    title,
+    author,
+    comment_count,
+    votes,
+    article_id,
+    body,
+    created_at
+  } = props.article;
+
   return (
     <div className="container">
-      <div className="card">
-        <div className="card-header">
-          <h2>{article.title}</h2>{" "}
-        </div>
+      <div className="card mb-4">
+        <div className="card-header"> {topic}</div>
         <div className="card-body">
-          <h5 className="card-title">Topic: {article.topic}</h5>{" "}
-          <p className="card-text">Votes: {article.votes}</p>
-          <p>Comments: {article.comment_count}</p>
-          <Link to={`/articles/${article.article_id}`}>Read Article →</Link>
+          <h2 className="card-title">{title}</h2>
+          <p className="card-text">{body}</p>
+          <p className="badge badge-primary">comments: {comment_count}</p>
+          <p className="card-text">Votes: {votes}</p>
+
+          <Link to={`/articles/${article_id}`}>Read Article →</Link>
         </div>
         <div className="card-footer text-muted">
-          Posted on {article.created_at} by:
-          <Link to={`/users/${article.author}`}>{article.author}</Link>
+          Posted on {created_at} by:
+          <Link to={`/users/${author}`}>{author}</Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default ArticlesCard;
+export default ArticleCard;
