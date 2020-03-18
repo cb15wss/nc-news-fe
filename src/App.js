@@ -8,6 +8,7 @@ import { Router } from "@reach/router";
 import ArticleList from "./components/ArticleList";
 import Article from "./components/Article";
 import TopicsList from "./components/TopicsList";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Article path="/articles/:article_id" />
         <ArticleList path="/articles/topic/:topic" />
         <TopicsList path="/topics" />
+        <ErrorPage default />
       </Router>
     </div>
   );

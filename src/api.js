@@ -3,10 +3,10 @@ const apiRequest = axios.create({
   baseURL: "https://xtine-news.herokuapp.com/api"
 });
 
-export const getArticles = topic => {
+export const getArticles = (topic, sortValue, filter) => {
   return apiRequest
     .get(`/articles`, {
-      params: { topic: topic }
+      params: { topic: topic, sort_by: sortValue, filter: filter }
     })
     .then(({ data }) => {
       //console.log("api articles", data.articles);

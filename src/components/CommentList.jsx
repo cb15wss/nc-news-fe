@@ -3,7 +3,7 @@ import { getArticleComments } from "../api";
 import CommentCard from "./CommentCard";
 
 class CommentList extends Component {
-  state = { comments: [] };
+  state = { comments: [], isLoading: true, error: false, errorMessage: "" };
 
   componentDidMount() {
     this.fetchComments();
@@ -12,23 +12,21 @@ class CommentList extends Component {
   fetchComments = () => {
     const { article_id } = this.props;
     getArticleComments(article_id).then(comments => {
-      this.setState({ comments });
+      this.setState({ comments, isLoading: false });
     });
   };
 
   render() {
-    console.log("comments in render", this.state.comments);
     const { comments } = this.state;
     return (
-      <div className="container">
-        <h2>Comments</h2>
-
+      <>
+        <h2>Article Comments</h2>
         <ul>
           {comments.map(comment => {
             return <CommentCard key={comment.comment_id} comment={comment} />;
           })}
         </ul>
-      </div>
+      </>
     );
   }
 }

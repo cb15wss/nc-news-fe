@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { getTopics } from "../api";
 import TopicCard from "./TopicCard";
+import Loading from "./Loading";
 
 class TopicsList extends Component {
-  state = { topics: [] };
+  state = { topics: [], isLoading: true };
 
   componentDidMount() {
     this.fetchTopics();
@@ -11,14 +12,16 @@ class TopicsList extends Component {
 
   fetchTopics = () => {
     getTopics().then(topics => {
-      this.setState({ topics });
+      this.setState({ topics, isLoading: false });
     });
   };
 
   render() {
-    console.log("render topics ", this.state.topics);
-    const { topics } = this.state;
-
+    //console.log("render topics ", this.state.topics);
+    const { topics, isLoading } = this.state;
+    if (isLoading) {
+      return <Loading />;
+    }
     return (
       <div className="container">
         <TopicCard topics={topics} />
