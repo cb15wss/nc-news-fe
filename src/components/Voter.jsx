@@ -37,9 +37,7 @@ class Vote extends Component {
   }
 
   addVote = vote => {
-    //console.log("vote ", vote);
     const { voteToAdd } = this.state;
-    // console.log("addVote ", voteToAdd);
     if (voteToAdd === vote) {
       this.setState({ voteToAdd: 0 });
       vote *= -1;

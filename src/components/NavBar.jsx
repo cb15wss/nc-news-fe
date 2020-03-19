@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 const NavBar = () => {
   return (
     <div className="container">
-      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <Link to="/" className="navbar-brand">
           <button className="nav-btn"> Tina Times</button>
         </Link>

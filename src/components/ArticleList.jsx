@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as Api from "../api";
-import ArticlesCard from "./ArticlesCard";
+import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
 import ErrorPage from "./ErrorPage";
 
@@ -29,10 +29,6 @@ class ArticleList extends Component {
     }
   }
 
-  setFilter = filter => {
-    this.setState({ filter, isLoading: true });
-  };
-
   fetchArticles = () => {
     const { sort_by, filter } = this.state;
     const { topic } = this.props;
@@ -41,7 +37,6 @@ class ArticleList extends Component {
         this.setState({ articles, isLoading: false, error: false });
       })
       .catch(err => {
-        // console.dir(err);
         this.setState({ isLoading: false, error: true, errorMessage: err.msg });
       });
   };
@@ -71,7 +66,7 @@ class ArticleList extends Component {
 
         <div>
           {articles.map(article => {
-            return <ArticlesCard key={article.article_id} article={article} />;
+            return <ArticleCard key={article.article_id} article={article} />;
           })}
         </div>
       </>

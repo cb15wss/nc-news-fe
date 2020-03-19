@@ -9,14 +9,12 @@ export const getArticles = (topic, sortValue, filter) => {
       params: { topic: topic, sort_by: sortValue, filter: filter }
     })
     .then(({ data }) => {
-      //console.log("api articles", data.articles);
       return data.articles;
     });
 };
 
 export const getArticle = article_id => {
   return apiRequest.get(`articles/${article_id}`).then(({ data }) => {
-    //console.log("article in get article", data.article);
     return data.article;
   });
 };
@@ -41,10 +39,8 @@ export const insertComment = (article_id, comment) => {
     });
 };
 
-export const deleteById = (id, target) => {
-  return apiRequest.delete(`/${target}/${id}`).then(({ status }) => {
-    return status;
-  });
+export const deleteById = id => {
+  return apiRequest.delete(`/comments/${id}`);
 };
 
 export const patchVote = (target, id, vote) => {

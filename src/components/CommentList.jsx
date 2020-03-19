@@ -29,14 +29,14 @@ class CommentList extends Component {
     });
   };
 
-  removeComment = (comment_id, target, index) => {
-    deleteById(comment_id, target).then(response => {
-      if (response === 204) {
-        this.setState(currentState => {
-          currentState.comments.splice(index, 1);
-          return { comments: currentState.comments };
+  removeComment = comment_id => {
+    deleteById(comment_id).then(() => {
+      this.setState(currentState => {
+        const commentsArray = currentState.comments.filter(comment => {
+          return comment.comment_id !== comment_id;
         });
-      }
+        return { comments: commentsArray };
+      });
     });
   };
 

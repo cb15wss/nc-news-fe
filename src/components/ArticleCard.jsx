@@ -13,6 +13,8 @@ const ArticleCard = props => {
     created_at
   } = props.article;
 
+  const datePosted = Date(created_at).slice(0, 24);
+
   return (
     <div className="container">
       <div className="card mb-4">
@@ -26,7 +28,7 @@ const ArticleCard = props => {
           <Link to={`/articles/${article_id}`}>Read Article →</Link>
         </div>
         <div className="card-footer text-muted">
-          Posted on {created_at} by:
+          Posted on {datePosted} by:
           <Link to={`/users/${author}`}>{author}</Link>
         </div>
       </div>

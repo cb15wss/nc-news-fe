@@ -8,22 +8,28 @@ const Home = () => {
         <div className="col-md-10 px-0">
           <h1 className="display-4 font-italic">Featured Article</h1>
           <h2>CHRISTINE BANDA'S ‘OUTSTANDING’ HONOUR</h2>
+          <div className="col-sm-4">
+            <img
+              src="https://www.bolton.ac.uk/wp-content/uploads/2019/04/ChristineAward-193x300.jpg"
+              alt="Christine Banda"
+            />
+          </div>
 
           <p className="lead my-3">
             She was one of five students from universities in the UK to be named
             as a finalist in the Worshipful Company of Information Technologists
             (WCIT) Outstanding Information Technology Student Awards.
           </p>
-          <p className="lead mb-0">
+
+          <div className="lead mb-0">
             <a
               href="https://www.theboltonnews.co.uk/news/17591365.first-class-result-
               for-single-mum-of-four-who-came-to-bolton-to-start-a-new-life/"
               className="text-white font-weight-bold"
             >
-              Christine Banda
+              <h2>Read More...</h2>
             </a>
-          </p>
-          <h2>Read More...</h2>
+          </div>
         </div>
       </div>
       <div className="container">

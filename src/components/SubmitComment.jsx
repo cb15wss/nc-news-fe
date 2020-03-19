@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import { insertComment } from "../api";
+import ErrorPage from "./ErrorPage";
 
 class SubmitComment extends Component {
-  state = { title: "", body: "", viewForm: false };
+  state = {
+    title: "",
+    body: "",
+    viewForm: false,
+    error: false,
+    errorMessage: ""
+  };
   render() {
-    const { body, viewForm } = this.state;
-    console.log(this.props);
-
+    const { body, viewForm, error, errorMessage } = this.state;
+    if (error) {
+      return <ErrorPage err={errorMessage} />;
+    }
     return (
       <>
         <button className="btn btn-warning m-2" onClick={this.toggleViewForm}>
@@ -18,6 +26,7 @@ class SubmitComment extends Component {
               <textarea
                 type="text"
                 className="form-control"
+                required
                 id="body"
                 name="body"
                 onChange={this.handleChange}
@@ -53,7 +62,11 @@ class SubmitComment extends Component {
           pushComment(comment);
         })
         .catch(err => {
-          console.dir(err);
+          this.setState({
+            isLoading: false,
+            error: true,
+            errorMessage: err.msg
+          });
         });
     }
   };

@@ -6,14 +6,14 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import { Router } from "@reach/router";
 import ArticleList from "./components/ArticleList";
-import Article from "./components/Article";
-import TopicsList from "./components/TopicsList";
+import ArticleView from "./components/ArticleView";
+import TopicList from "./components/TopicList";
 import ErrorPage from "./components/ErrorPage";
-import UsersList from "./components/UsersList";
+import UserList from "./components/UserList";
 
 class App extends Component {
   state = {
-    username: "jessjelly"
+    // username: "jessjelly"
   };
   render() {
     const { username } = this.state;
@@ -24,10 +24,10 @@ class App extends Component {
         <Router>
           <Home path="/" />
           <ArticleList path="/articles/*" username={username} />
-          <Article path="/articles/:article_id" username={username} />
-          <TopicsList path="/topics" />
+          <ArticleView path="/articles/:article_id" username={username} />
+          <TopicList path="/topics" />
           <ArticleList path="/articles/topic/:topic" />
-          <UsersList path="/users" />
+          <UserList path="/users" />
           <ErrorPage default />
         </Router>
       </div>
