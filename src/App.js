@@ -13,7 +13,7 @@ import UserList from "./components/UserList";
 
 class App extends Component {
   state = {
-    // username: "jessjelly"
+    username: "jessjelly"
   };
   render() {
     const { username } = this.state;

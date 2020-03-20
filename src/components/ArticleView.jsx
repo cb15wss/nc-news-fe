@@ -26,13 +26,11 @@ class Article extends Component {
         this.setState({ article, isLoading: false });
       })
       .catch(err => {
-        // console.dir(err);
         this.setState({ isLoading: false, notFound: true });
       });
   };
 
   render() {
-    // console.log("Article props", this.props);
     const {
       article: { title, body, votes, topic, author, created_at },
       isLoading,
@@ -44,19 +42,14 @@ class Article extends Component {
     if (notFound) return <ErrorPage />;
     return (
       <div className="container">
-        <h3>Article ID {this.props.article_id}</h3>
-        <div className="card">
-          <div className="card-header">
-            <h2>{title}</h2>Created on {created_at} by:
-            <Link to={`/users/${author}`}> {author}</Link>
-          </div>
-          <div className="card-body">
-            <h5 className="card-title">Topic: {topic}</h5>
-            <p className="card-text">{body}</p>
-            {username !== author && (
-              <Voter votes={votes} id={article_id} target={"articles"} />
-            )}
-          </div>
+        <h2>{title}</h2>Created on {created_at} by:
+        <Link to={`/users/${author}`}> {author}</Link>
+        <div className="card-body">
+          <h5 className="card-title">Topic: {topic}</h5>
+          <p className="card-text">{body}</p>
+          {username !== author && (
+            <Voter votes={votes} id={article_id} target={"articles"} />
+          )}
         </div>
         <CommentList article_id={article_id} username={username} />
       </div>

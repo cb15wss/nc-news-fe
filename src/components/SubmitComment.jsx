@@ -6,27 +6,28 @@ class SubmitComment extends Component {
   state = {
     title: "",
     body: "",
-    viewForm: false,
+    showForm: false,
     error: false,
     errorMessage: ""
   };
   render() {
-    const { body, viewForm, error, errorMessage } = this.state;
+    const { body, showForm, error, errorMessage } = this.state;
+    const { username } = this.props;
     if (error) {
       return <ErrorPage err={errorMessage} />;
     }
     return (
-      <>
-        <button className="btn btn-warning m-2" onClick={this.toggleViewForm}>
-          Post Your Comment as {this.props.username}
+      <div className="container">
+        <button className="btn btn-warning" onClick={this.toggleViewForm}>
+          Post Your Comment as {username}
         </button>
-        {viewForm && (
+        {showForm && (
           <form onSubmit={this.SubmitComment}>
             <div className="form-group">
+              <label htmlFor="body">Add your Message below: </label>
               <textarea
                 type="text"
-                className="form-control"
-                required
+                class="form-control"
                 id="body"
                 name="body"
                 onChange={this.handleChange}
@@ -34,26 +35,25 @@ class SubmitComment extends Component {
                 placeholder="Message Body"
               ></textarea>
             </div>
-            <button className="btn btn-primary m-2" type="submit">
+            <button className="btn btn-primary" m-2 type="submit">
               Submit
             </button>
           </form>
         )}
-      </>
+      </div>
     );
   }
 
   toggleViewForm = () => {
     this.setState(currentState => {
-      return { viewForm: !currentState.viewForm };
+      return { showForm: !currentState.showForm };
     });
   };
 
   SubmitComment = event => {
     event.preventDefault();
     const { body } = this.state;
-    const { username } = this.props;
-    const { pushComment } = this.props;
+    const { username, pushComment } = this.props;
     if (body) {
       this.setState({ body: "", showForm: false });
       const { article_id } = this.props;
