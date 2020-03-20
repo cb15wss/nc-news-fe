@@ -1,6 +1,6 @@
 # Tina-Times
 
-This is a front-end React app for my news app built on a node.js/express backend server
+Tina Tmes is a "Reddit Style" news application with articles built on a node.js/express backend server
 
 The Users are able to view articles, view comments on individual article, add a comment on an article,
 vote up or down on articles and comments.

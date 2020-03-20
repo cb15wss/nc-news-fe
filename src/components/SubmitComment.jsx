@@ -27,7 +27,7 @@ class SubmitComment extends Component {
               <label htmlFor="body">Add your Message below: </label>
               <textarea
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="body"
                 name="body"
                 onChange={this.handleChange}
@@ -35,7 +35,7 @@ class SubmitComment extends Component {
                 placeholder="Message Body"
               ></textarea>
             </div>
-            <button className="btn btn-primary" m-2 type="submit">
+            <button className="btn btn-primary m-2" type="submit">
               Submit
             </button>
           </form>

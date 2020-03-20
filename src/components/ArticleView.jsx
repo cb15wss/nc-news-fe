@@ -42,14 +42,18 @@ class Article extends Component {
     if (notFound) return <ErrorPage />;
     return (
       <div className="container">
-        <h2>{title}</h2>Created on {created_at} by:
-        <Link to={`/users/${author}`}> {author}</Link>
-        <div className="card-body">
-          <h5 className="card-title">Topic: {topic}</h5>
-          <p className="card-text">{body}</p>
-          {username !== author && (
-            <Voter votes={votes} id={article_id} target={"articles"} />
-          )}
+        <div className="card mb-4">
+          <div className="card-header">
+            <h2>{title}</h2>Created on {created_at} by:
+            <Link to={`/users/${author}`}> {author}</Link>
+          </div>
+          <div className="card-body">
+            <h5 className="card-title">Topic: {topic}</h5>
+            <p className="card-text">{body}</p>
+            {username !== author && (
+              <Voter votes={votes} id={article_id} target={"articles"} />
+            )}
+          </div>
         </div>
         <CommentList article_id={article_id} username={username} />
       </div>

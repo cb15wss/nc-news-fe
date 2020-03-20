@@ -17,13 +17,18 @@ const ArticleCard = props => {
 
   return (
     <div className="container">
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2> Posted on {datePosted} by:
-        <Link to={`/users/${author}`}>{author}</Link>
-        <p className="card-text">{body}</p>
-        <p className="badge badge-primary">comments: {comment_count}</p>
-        <p className="card-text">Votes: {votes}</p>
-        <Link to={`/articles/${article_id}`}>Read Article →</Link>
+      <div className="card mb-4">
+        <div className="card-header">
+          <h2>{title}</h2>Posted on {datePosted} by:
+          <Link to={`/users/${author}`}>{author}</Link>
+        </div>
+        <div className="card-body">
+          <p className="card-text">Topic: {topic}</p>
+          <p className="card-text">{body}</p>
+          <p className="badge badge-primary">comments: {comment_count}</p>
+          <p className="card-text">Votes: {votes}</p>
+          <Link to={`/articles/${article_id}`}>Read Article →</Link>
+        </div>
       </div>
     </div>
   );

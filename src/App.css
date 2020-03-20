@@ -1,7 +1,7 @@
 .App {
   text-align: left;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .container {
@@ -35,4 +35,11 @@ ul {
 }
 .header {
   color: green;
+  margin-bottom: 0em;
+}
+
+.logo {
+  font-weight: bold;
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
