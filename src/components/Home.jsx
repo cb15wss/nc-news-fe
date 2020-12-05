@@ -8,11 +8,9 @@ const Home = () => {
         <div className="col-md-10 px-0">
           <h1 className="display-4 font-italic">Featured Article</h1>
           <h2>CHRISTINE BANDA'S ‘OUTSTANDING’ HONOUR</h2>
-          <div className="col-sm-4">
-            <img
-              src="/src/images/tina.jpg"
-              alt="Christine Banda"
-            />
+          <div className="col-sm-8">
+            <img 
+              src={require("../images/tina.jpg")} alt="Christine Banda"/>
           </div>
 
           <p className="lead my-3">

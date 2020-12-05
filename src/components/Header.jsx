@@ -6,7 +6,7 @@ const Header = props => {
     <div className="container">
       <header>
         <Link to="/" className="navbar-brand">
-         <img src="/src/images/Tina Times.png" alt=""/>
+         <img src={require("../images/Tina Times.png")}  width="250" height="100 "alt="Tina Times Logo"/>
         </Link>
 
         <div className="header" align="right">
