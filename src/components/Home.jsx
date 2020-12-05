@@ -10,7 +10,7 @@ const Home = () => {
           <h2>CHRISTINE BANDA'S ‘OUTSTANDING’ HONOUR</h2>
           <div className="col-sm-4">
             <img
-              src="../images/tina.jpg"
+              src="/src/images/tina.jpg"
               alt="Christine Banda"
             />
           </div>

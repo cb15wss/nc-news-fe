@@ -6,7 +6,7 @@ const Header = props => {
     <div className="container">
       <header>
         <Link to="/" className="navbar-brand">
-          <h1 className="logo">Tina Times</h1>
+         <img src="/src/images/Tina Times.png" alt=""/>
         </Link>
 
         <div className="header" align="right">
